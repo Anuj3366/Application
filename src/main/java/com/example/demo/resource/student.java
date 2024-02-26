@@ -12,20 +12,20 @@ import java.util.ArrayList;
 @RequestMapping("/Student")
 public class student {
   @Autowired
-  private studentService studentdata;
+  private studentService studentservice = new studentService();
   
   @GetMapping("/GetStudentById/{id}")
   public StudentModel GetStudentById(@PathVariable String id) throws Exception {
-    return studentService.GetStudentById(id);
+    return studentservice.GetStudentById(id);
   }
   
   @PostMapping("/AddStudent/{name}/{age}/{adhar}/{university}")
   public String AddStudent(@PathVariable String name, @PathVariable String age,@PathVariable String adhar, @PathVariable String university) {
-    return studentService.AddStudent(name,age,adhar,university);
+    return studentservice.AddStudent(name,age,adhar,university);
   }
   
   @GetMapping("/GetAllStudentByUniversity/{university}")
   public ArrayList GetAllStudentByUniversity(@PathVariable String university) throws Exception {
-    return studentService.GetAllStudentByUniversity(university);
+    return studentservice.GetAllStudentByUniversity(university);
   }
 }
