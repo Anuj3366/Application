@@ -14,17 +14,17 @@ public class student {
   @Autowired
   private studentService studentdata;
   
-  @GetMapping("/get/{id}")
+  @GetMapping("/GetStudentById/{id}")
   public StudentModel GetStudentById(@PathVariable String id) throws Exception {
     return studentService.GetStudentById(id);
   }
   
-  @PostMapping("/create/{name}/{age}/{adhar}/{university}")
+  @PostMapping("/AddStudent/{name}/{age}/{adhar}/{university}")
   public String AddStudent(@PathVariable String name, @PathVariable String age,@PathVariable String adhar, @PathVariable String university) {
     return studentService.AddStudent(name,age,adhar,university);
   }
   
-  @GetMapping("/get/{university}")
+  @GetMapping("/GetAllStudentByUniversity/{university}")
   public ArrayList GetAllStudentByUniversity(@PathVariable String university) throws Exception {
     return studentService.GetAllStudentByUniversity(university);
   }
